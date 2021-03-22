@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Cdu-CD-gFi">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="byo-HI-bIS">
     <device id="retina4_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
@@ -8,21 +8,41 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="ant-6e-nCA">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="byo-HI-bIS" customClass="PageViewController" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s5r-uf-Hy9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-759" y="-584"/>
+        </scene>
         <!--Location Detail View Controller-->
         <scene sceneID="crW-cS-iTY">
             <objects>
-                <viewController id="Cdu-CD-gFi" customClass="LocationDetailViewController" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LocationDetailViewController" id="Cdu-CD-gFi" customClass="LocationDetailViewController" customModule="WeatherGift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WhM-dn-uGH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yWR-nC-Cu8">
-                                <rect key="frame" x="0.0" y="772" width="72" height="44"/>
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="TTo-oo-tUR"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem title="About" id="X8X-wZ-Yo1"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="I87-Th-3jc"/>
+                                    <barButtonItem style="plain" id="lMx-zV-qgs">
+                                        <pageControl key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" id="f7w-nM-8aJ">
+                                            <rect key="frame" x="75" y="8" width="170" height="28"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="pageIndicatorTintColor" systemColor="systemTealColor"/>
+                                            <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <action selector="pageControlTapped:" destination="Cdu-CD-gFi" eventType="valueChanged" id="Mge-C6-byr"/>
+                                            </connections>
+                                        </pageControl>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="VeC-yg-eAR"/>
                                     <barButtonItem image="list.bullet" catalog="system" id="c6H-5q-mOt">
                                         <connections>
@@ -88,6 +108,7 @@
                     <connections>
                         <outlet property="dateLabel" destination="TxP-Ia-a7m" id="LFI-Gp-CR2"/>
                         <outlet property="imageView" destination="wIB-Uo-0nf" id="FSs-59-7uB"/>
+                        <outlet property="pageControl" destination="f7w-nM-8aJ" id="ZhD-NY-ClO"/>
                         <outlet property="placeLabel" destination="7Er-sE-wgT" id="H8N-U1-e2w"/>
                         <outlet property="summaryLabel" destination="B3z-ce-8AC" id="OWZ-Qm-Trl"/>
                         <outlet property="temperatureLabel" destination="6vy-dT-j5k" id="nP2-dE-Tqx"/>
@@ -180,7 +201,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <exit id="RYN-h8-oNH" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="139" y="77"/>
+            <point key="canvasLocation" x="139" y="107"/>
         </scene>
     </scenes>
     <resources>
